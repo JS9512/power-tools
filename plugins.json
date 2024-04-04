@@ -1,0 +1,1346 @@
+{
+  "wayback": {
+    "cmd": " ",
+    "template": "curl -s \"http://archive.org/wayback/available?url={}\" | jq -r '.archived_snapshots.closest.url'\n",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"url",
+        "description": "Enter URL"
+      }
+    ],
+    "output": [],
+    "test":["https://google.com"],
+    "desc":"get wayback machine url"
+  }
+,"dict": {
+  "cmd": " ",
+    "template": "dict -d wn {}",
+    "install_command": "sudo apt-get install -y dict",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"word",
+        "description": "Enter word"
+      }
+    ],
+  "output": [],
+  "test":["cat"],
+  "desc":"get definition of word"
+},
+  "weather": {
+    "cmd": " ",
+    "template": "curl https://goweather.herokuapp.com/weather/{}",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"word",
+        "description": "Enter city"
+      }
+    ],
+    "output": [],
+    "test":["china"],
+    "desc":"Check weather of a city"
+  },
+  "movie": {
+    "cmd": " ",
+    "template": "movie-cli {}",
+    "install_command": "npm install -g movie-cli",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"line",
+        "description": "Enter movie name"
+      }
+    ],
+    "output": [],
+    "test":["the batman"],
+    "desc": "get basic info of movie"
+  },
+  "nasa": {
+    "cmd": " ",
+    "template": "nasa -t",
+    "install_command": "sudo npm install -g nasa-cli",
+    "inputs": [
+    ],
+    "output": [],
+    "desc":"get nasa's today image"
+  },
+  "howdoi": {
+    "cmd": " ",
+    "template": "howdoi {}",
+    "install_command": "pip install howdoi",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"line",
+        "description": "Enter query"
+      }
+    ],
+    "output": [],
+    "test":["sort numbers in js"],
+    "desc":"quick answer to programming queries from stackoverflow"
+  },
+  "figlet": {
+    "cmd": " ",
+    "template": "figlet {}",
+    "install_command": "sudo apt-get install -y figlet",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"line",
+        "description": "Enter text"
+      }
+    ],
+    "output": ["mono"],
+    "test":["hello"],
+    "desc":"Make ascii art from text"
+  },
+  "parse": {
+    "cmd": " ",
+    "template": "cat {} | parse-columns",
+    "install_command": "sudo npm install -g parse-columns-cli",
+    "inputs": [
+      {
+        "type": "filetext",
+        "description": "Enter Text"
+      }
+    ],
+    "output": [],
+    "test":["tmp.txt"],
+    "desc":"parse text into columns"
+  },
+  "2imgur": {
+    "cmd": " ",
+    "template": " imgur-uploader {} --title 'Upload'",
+    "install_command": "sudo npm install -g imgur-uploader-cli",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["jpg","png"],
+        "description": "Send image"
+      }
+    ],
+    "output": [],
+    "test":[".jpg"],
+    "desc":"Upload image to imgur"
+  },
+  "qotd": {
+    "cmd": " ",
+    "template": "quote qotd",
+    "install_command": "sudo npm install -g quote-cli",
+    "inputs": [],
+    "output": [],
+    "test":[],
+    "desc":"get random quote"
+  },
+  "addcaption": {
+    "cmd": " ",
+    "template": "python3 -m dankcli {} \"{}\" -f dankmeme",
+    "install_command": "pip install dankcli",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["jpg","png"],
+        "description": "Send image"
+      },
+      {
+        "type": "text",
+         "format":"line",
+        "description": "Send meme caption"
+      }
+    ],
+    "output": ["dankmeme.png","dankmeme.jpg"],
+    "test":[".jpg","hello"],
+    "desc":"add caption at top to image"
+  },
+  "ip2loc": {
+    "cmd": " ",
+    "template": "curl ipinfo.io/{} | jq . | jtbl -r",
+    "install_command": "pip install jtbl",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"url",
+        "description": "Enter IP"
+      }
+    ],
+    "output": [],
+    "test":["8.8.8.8"],
+    "desc":"get location from IP"
+  },
+  "paste": {
+    "cmd": " ",
+    "template": "curl --upload-file {} 'https://paste.c-net.org/'\n",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "filetext",
+        "description": "Send text"
+      }
+    ],
+    "output": [],
+    "test":["temp.txt"],
+    "desc":"paste text to pastebin"
+  },
+  "shorten": {
+    "cmd": " ",
+    "template": "curl -s https://da.gd/s?url={}",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"url",
+        "description": "Enter URL"
+      }
+    ],
+    "output": [],
+    "test":["https://google.com"],
+    "desc":"shorten the url"
+  },
+  "qrcode": {
+    "cmd": " ",
+    "template": "qrencode -r {} -o qrcode.png",
+    "install_command": "sudo apt-get install -y qrencode",
+    "inputs": [
+      {
+        "type": "filetext",
+        "description": "Enter text"
+      }
+    ],
+    "output": ["qrcode.png"],
+    "test":["temp.txt"],
+    "desc":"get qrcode of specified text"
+  },
+  "extractlinks": {
+    "cmd": " ",
+    "template": "curl -s https://api.hackertarget.com/pagelinks/?q={}",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"url",
+        "description": "Enter URL"
+      }
+    ],
+    "output": [],
+    "test":["https://google.com"],
+    "desc":"extract links from url"
+  },
+  "catfact": {
+    "cmd": " ",
+    "template": "curl https://meowfacts.herokuapp.com/ | jq .data[0] -r",
+    "install_command": "",
+    "inputs": [
+
+    ],
+    "output": [],
+    "test":[""],
+    "desc":"random cat fact"
+  },
+  "shibapic": {
+    "cmd": " ",
+    "template": "curl $(curl https://shibe.online/api/shibes?count=1  | jq .[0] -r) -o shiba.jpg",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": ["shiba.jpg"],
+    "test":[],
+    "desc":"random shiba pic"
+  },
+  "animequote": {
+    "cmd": " ",
+    "template": "curl https://animechan.xyz/api/random | jq  .quote -r",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"random anime quote"
+  },
+  "name2gender": {
+    "cmd": " ",
+    "template": "curl https://api.genderize.io?name={} | jtbl",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"word",
+        "description": "Enter name"
+      }
+    ],
+    "output" : ["mono"],
+    "test":["ayan"],
+    "desc":"predict gender from name"
+  },
+    "activity": {
+        "cmd": " ",
+        "template": "curl http://www.boredapi.com/api/activity?type={} | jq .activity -r",
+        "install_command": "",
+        "inputs": [
+        {
+            "type": "button",
+            "options": ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"],
+            "description" :"Enter type of activity"
+        }],
+        "output" : [],
+        "test":["diy"],
+        "desc":"get random activity to do"
+    },
+  "name2nation": {
+    "cmd": " ",
+    "template": "curl https://api.nationalize.io?name={} | jq .country | jtbl",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"word",
+        "description": "Enter name"
+      }
+    ],
+    "output" : ["mono"],
+    "test":["ayan"],
+    "desc":"predict nation from name"
+  },
+    "name2age": {
+        "cmd": " ",
+        "template": "curl https://api.agify.io?name={} | jtbl",
+        "install_command": "",
+        "inputs": [
+        {
+            "type": "text",
+             "format":"word",
+            "description": "Enter name"
+        }
+        ],
+        "output" : ["mono"],
+        "test":["ayan"],
+        "desc":"predict age from name"
+    },
+  "foodpic": {
+    "cmd": " ",
+    "template": "curl https://foodish-api.com/api/ | jq .image -r",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"get random food pic"
+  },
+  "genshinchar": {
+    "cmd": " ",
+    "template": "curl https://genshin.jmp.blue/characters/{}/card -o genshin.png",
+    "install_command": "",
+    "inputs": [
+      {
+        "type": "text",
+         "format":"word",
+        "description": "Enter character name"
+      }
+    ],
+    "output": ["genshin.png"],
+    "test":["sucrose"],
+    "desc":"get genshin character card"
+  },
+  "darkjoke": {
+    "cmd": " ",
+    "template": "curl https://v2.jokeapi.dev/joke/Dark?type=single | jq .joke -r",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"random dark joke"
+  },
+  "joketype": {
+    "cmd": " ",
+    "template": "curl https://v2.jokeapi.dev/joke/{}?format=txt",
+    "install_command": "",
+    "inputs": [
+      {
+        "type":"button",
+        "options":["Programming","Misc","Dark","Pun","Spooky","Christmas"],
+        "description":"Select category"
+      }
+    ],
+    "output": [],
+    "test":[],
+    "desc":"Joke by category"
+  },
+  "randomjoke": {
+    "cmd": " ",
+    "template": "curl https://v2.jokeapi.dev/joke/Any?format=txt",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"random joke"
+  },
+  "botinfo": {
+    "cmd": " ",
+    "template": "curl https://api.botsarchive.com/getBotID.php?username={}  | jq .result.msg -r",
+    "install_command": "",
+    "inputs": [
+        {
+            "type": "text",
+            "format":"word",
+            "description": "Enter bot username"
+        }
+        ],
+    "output": [],
+    "test":["@Ordinallegacybot"],
+    "desc":"get bot info from botsarchive"
+  },
+  "evilinsult": {
+    "cmd": " ",
+    "template": "curl https://evilinsult.com/generate_insult.php?lang=en",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"get random insult"
+  },
+  "randomadvice":{
+    "cmd": " ",
+    "template": "curl https://api.adviceslip.com/advice | jq .slip.advice -r",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc":"get random advice"
+  },
+  "dadjoke": {
+    "cmd": " ",
+    "template": "curl https://icanhazdadjoke.com/",
+    "install_command": "",
+    "inputs": [
+    ],
+    "output": [],
+    "test":[],
+    "desc": "get random dadjoke"
+  },
+  "2mp4": {
+    "cmd": "",
+    "template": "ffmpeg -i {} -c copy -y  out.mp4",
+    "install_command": "sudo apt-get install -y ffmpeg",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["webm"],
+        "description": "Send webm file"
+      }
+    ],
+    "output": ["out.mp4"],
+    "test":[".webm"],
+    "desc":"convert video stickers into mp4"
+
+  },
+  "spectrogram": {
+    "cmd": "",
+    "template": "sox {} -n remix 1 spectrogram -x 1000 -y 513 -z 120 -w Kaiser -o spectrogram.png",
+    "install_command": "sudo apt-get install -y sox;sudo apt install -y libsox-fmt-all",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["flac","mp3"],
+        "description": "Send audio file"
+      }
+    ],
+    "output": ["spectrogram.png"],
+    "test":[".flac"],
+    "desc":"make visualisation from audio file"
+
+  },
+  "2flac": {
+    "cmd": "",
+    "template": "ffmpeg -i {} -f flac -y out.flac",
+    "install_command": "sudo apt-get install -y ffmpeg",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["mp3"],
+        "description": "Send any audio file"
+      }
+    ],
+    "output": ["out.flac"],
+    "test":[".mp3"],
+    "desc":"Make flac from audio file"
+  },
+  "mediainfo": {
+    "cmd": "",
+    "template": "mediainfo {}",
+    "install_command": "sudo apt-get install -y mediainfo",
+    "inputs": [
+      {
+        "type": "file",
+        "description": "Send media file"
+      }
+    ],
+    "output": ["mono"],
+    "test":[".mp4"],
+    "desc":"get mediainfo of file"
+  },
+  "addsubtitle": {
+    "cmd": "",
+    "template": "cp ../scripts/subtitle.srt subtitles.srt;echo \"{}\">>subtitles.srt;ffmpeg -i {} -vf \"subtitles=subtitles.srt:force_style='Fontsize=36'\" -y subtitled.mp4",
+    "install_command": "sudo apt-get install -y ffmpeg",
+    "inputs": [
+            {
+        "type": "text",
+         "format":"line",
+        "description": "Send subtitle text"
+      },
+      {
+        "type": "file",
+        "description": "Send video file"
+      }
+
+    ],
+    "output": ["subtitled.mp4"],
+    "test":["meow","sticker.webm"],
+    "desc":"add subtitle to video or video sticker"
+  }, "addsubtitle4sticker": {
+    "cmd": "",
+    "template": "cp ../scripts/subtitle.srt subtitles.srt;echo \"{}\">>subtitles.srt;ffmpeg -i {} -vf \"subtitles=subtitles.srt:force_style='Fontsize=36'\" -y subtitled.webm",
+    "install_command": "sudo apt-get install -y ffmpeg",
+    "inputs": [
+            {
+        "type": "text",
+         "format":"line",
+        "description": "Send subtitle text"
+      },
+      {
+        "type": "file",
+        "description": "Send video file"
+      }
+
+    ],
+    "output": ["subtitled.webm"],
+    "test":["meow","sticker.webm"],
+    "desc":"add subtitle to video sticker"
+  },
+  "2webm": {
+    "cmd": "",
+    "template": "ffmpeg -i {} -c:v libvpx-vp9 -crf 30 -b:v 0 -b:a 128k -c:a libopus -y output.webm",
+    "install_command": "sudo apt-get install -y ffmpeg",
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["mp4"],
+        "description": "Send mp4 file"
+      }
+    ],
+    "output": ["output.webm"],
+    "test":[".mp4"],
+    "desc":"convert video into video sticker"
+  },
+  "2sauce": {
+    "cmd": "",
+    "template": "result=$(curl \"https://api.trace.moe/search?url=$(imgur-uploader {} --title 'Upload')\" | jq .result[0] -r)\nvideo_url=$(echo \"$result\" | jq .video -r)\ncurl \"$video_url\" -o sauce.mp4\necho \"$result\"| jq {{filename:.filename,episode:.episode,at:.from,to:.to,anilist:.anilist,season:.season,similarity:.similarity}} -r| jtbl -r",
+    "install_command": "",
+
+    "inputs": [
+      {
+        "type": "file",
+        "formats":["png","jpg"],
+        "description": "send anime scene"
+      }
+    ],
+    "output": ["mono","sauce.mp4"],
+    "test":[".png"],
+    "desc":"get anime sauce"
+  },
+  "audio2video": {
+    "cmd": "",
+    "template": "ffmpeg -i {} -filter_complex \\\n\"[0:a]avectorscope=s=640x518,pad=1280:720[vs]; \\\n [0:a]showspectrum=mode=separate:color=intensity:scale=cbrt:s=640x518[ss]; \\\n [0:a]showwaves=s=1280x202:mode=line[sw]; \\\n [vs][ss]overlay=w[bg]; \\\n [bg][sw]overlay=0:H-h,drawtext=fontfile=/usr/share/fonts/TTF/Vera.ttf:fontcolor=white:x=10:y=10:text='\\\"Song Title\\\" by Artist'[out]\" \\\n-map \"[out]\" -map 0:a -c:v libx264 -preset fast -crf 18 -c:a  out.mkv",
+    "inputs": [
+        {
+            "type": "file",
+            "description": "Send audio"
+        }
+      ],
+    "output": ["out.mkv"],
+    "test":[".flac"],
+    "desc":"convert audio into video with visualisation"
+  },
+  "2fasterspeed":{
+	  "cmd":"",
+	  "template":"ffmpeg -i {} -filter:v 'setpts=0.5*PTS' -y out.webm",
+	  "inputs":[
+	  {
+		  "type":"file",
+		  "description": "send video"
+	  }],
+	  "output":["out.webm"],
+    "test":["sticker.webm"],
+    "desc":"make video 2x faster"
+  },
+  "2slowerspeed":{
+	  "cmd":"",
+	  "template":"ffmpeg -i {} -filter:v 'setpts=2.0*PTS' -y out.webm",
+	  "inputs":[
+	  {
+		  "type":"file",
+		  "description": "send video"
+	  }],
+	  "output":["out.webm"],
+    "test":["sticker.webm"],
+    "desc":"make video 0.5x "
+  },
+  "2frame":{
+	  "cmd":"",
+	  "template":"ffmpeg -i {} -vf \"select=eq(n\\,{})\" -vframes 1 -y out.png",
+	  "inputs":[
+		  {"type":"file","description":"send video"
+		  },
+		  {"type":"text", "format":"number","description":"send frame"}]
+		  ,
+		  
+		  "output":["out.png"],
+      "test":["sticker.webm",1],
+      "desc":"get specific frame from video or video sticker"
+		  
+  },
+  "2music":{
+    "cmd":"",
+    "template":"ffmpeg -i {} -c:a libvorbis -b:a 64k -y out.ogg",
+    "inputs":[
+      {"type":"file","description":"send audio file"}
+    ],
+    "output":["output.ogg"],
+    "desc":"audio to ogg"
+  },
+  "resizeimage":{
+    "cmd":"",
+    "template":"convert {} -resize {}% output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"},
+      {"type":"text", "format":"number","description":"Send percentage to resize"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png",50],
+    "desc":"resize image by percentage"
+  },
+  "resizeimagedim":{
+    "cmd":"",
+    "template":"convert {} -resize {} output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"},
+      {"type":"text", "format":"line","description":"Send dimensions to resize"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png","100x100"],
+    "desc":"resize image by dimensions"
+  },
+  "2thumbnail":{
+    "template":"convert {} -thumbnail {} output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"},
+      {"type":"text", "format":"line","description":"Send dimensions"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png","100x100"],
+    "desc":"make thumbnail of image by dimensions"
+  },
+  "addwatermark":{
+    "template":"convert {} -gravity southeast -annotate +100+100 '{}' output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"},
+      {"type":"text", "format":"line","description":"Send text"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png","meow"],
+    "desc":"add watermark to image"
+
+  },
+  "compressimage":{
+    "template":"convert {} -quality {} output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"},
+      {"type":"text", "format":"number","description":"Send quality"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png",80],
+    "desc":"compress image by quality"
+  },
+  "2edges":{
+    "template":"convert {} -edge 1 output.jpg",
+    "inputs":[
+      {"type":"file","description":"Send image"}
+    ],
+    "output":["output.jpg"],
+    "test":[".png"],
+    "desc":"get edges of image"
+  },
+  "trim2sticker":{
+    "template":"ffmpeg -ss 00:00:00 -to 00:00:03 -i {} -c copy -y output.webm",
+    "inputs":[
+      {"type":"file","description":"Send vd file"}
+    ],
+    "output":["output.webm"],
+    "test":["sticker.webm"],
+    "desc":"trim video to make sticker"
+  },
+  "resize2sticker":{
+    "template":"ffmpeg -i {} -vf \"scale='if(gt(iw,512),512,trunc(iw/2)*2)':'if(gt(ih,512),512,trunc(ih/2)*2)'\" -y output.webm;",
+    "inputs":[
+      {"type":"file","description":"Send video file"}
+    ],
+    "output":["output.webm"],
+    "test":["sticker.webm"],
+    "desc":"resize video to make sticker"
+  },
+  "2sticker":{
+    "template":"ffmpeg -i {} -vf scale=-1:512 -ss 00:00:00 -to 00:00:03 -y output.webm",
+    "inputs":[
+      {"type":"file","description":"Send video file"}
+    ],
+    "output":["output.webm"],
+    "test":[".mp4"],
+    "desc":"makes sticker from video"
+  },
+  "rotate":{
+    "template":"convert {} -virtual-pixel black -distort SRT {} out.jpg",
+    "inputs":[
+           {"type":"file","description":"Send sticker file"},
+           {"type":"text","description":"Enter degrees"}
+    ]
+  ,
+  "output":["out.jpg"],
+  "test":[".png"],
+  "desc":"rotate image by degrees"
+  },
+"text2img":{
+  "template":"convert -size 800x600 xc:white -gravity center -pointsize 48 -fill black -annotate +0+0 \"{}\" output.png",
+  "inputs":[
+    {"type":"text", "format":"line","description":"send caption text"}
+  ],
+  "output":["output.png"],
+  "test":["god"],
+  "desc":"make image with text at center"
+},
+"ytdlp":{
+  "template":"url={};yt-dlp --merge-output-format mkv $url --quiet;yt-dlp --print filename $url",
+  "install_command":"pip install yt-dlp",
+  "inputs":[
+    {"type":"text",
+     "format":"url",
+     "sample":"http://www.youtube.com/watch?v=DeumyOzKqgI",
+     "description":"send yt link"}
+  ],
+  "output":["output_is_filepath"],
+  "test":["https://www.youtube.com/watch?v=GC80Dk7eg_A"],
+  "desc":"download youtube video from url"
+},
+"yt2mp3":{
+  "template":"yt-dlp -x '{}' -o output --quiet",
+  "inputs":[
+    {"type":"text",
+     "format":"url",
+     "sample":"http://www.youtube.com/watch?v=DeumyOzKqgI",
+     "description":"send yt link"}
+  ],
+  "output":["output.opus"],
+  "test":["https://www.youtube.com/watch?v=GC80Dk7eg_A"],
+  "desc":"download youtube audio from url"
+},
+"droidsearch":{
+  "template":"fdroidcl search {}|python3 ../scripts/droidsearch.py",
+  "install_command":"sudo apt-get install -y fdroidcl",
+  "inputs":[
+    {"type":"text",
+     "format":"line",
+     "sample":"battery",
+     "description":"send app name"}
+  ],
+  "output":[],
+  "test":["battery"],
+  "desc":"search on fdroid"
+},
+"droiddl":{
+  "template":"fdroidcl download {} | grep -oP 'APK available in \\K.*'",
+  "install_command":"sudo apt-get install -y fdroidcl",
+  "inputs":[
+    {"type":"text", 
+    "format":"line",
+    "sample":"com.simplemobiletools.contacts.pro",
+    "description":"send app id"}
+  ],
+  "output":["output_is_filepath"],
+  "test": ["s1m.savertuner"],
+  "desc":"download from fdroid"
+},"droidinfo":{
+  "template":"fdroidcl show {} | parse-columns| jq -r '.[:10] | map(.[]) | join(\"\n\")'",
+  "install_command":"sudo apt-get install -y fdroidcl",
+  "inputs":[
+    {"type":"text",
+     "format":"url",
+     "sample":"com.simplemobiletools.contacts.pro",
+     "description":"send app id"}
+  ],
+  "output":["mono"],
+  "test":["s1m.savertuner"],
+  "desc":"get info from fdroid"
+},"repoinfo":{
+  "template":"curl $(echo {}| sed 's/github.com/api.github.com\\/repos/') | jq \"{{description: .description,stars: .stars,forks:.forks,topics:.topics,language:.language}}\" -r | jtbl -r",
+  "inputs":[{"type":"text",
+   "format":"url",
+   "sample":"https://github.com/AkaneTan/Gramophone/",
+   "description":"send repo url"}
+  ],
+"output":[],
+"test":["https://github.com/AkaneTan/Gramophone/"],
+"desc":"get github repo info from url"
+},
+"lottie2gif":{
+  "template":"python3 ../scripts/_2lottie.py {}",
+  "install_command":"pip install pyrlottie;chmod +x /usr/local/lib/python3.10/dist-packages/pyrlottie/linux_x86_64/lottie2gif",
+  "inputs":[
+    {"type":"file","description":"send lottie file"}
+  ],
+  "output":["anime.gif"],
+  "desc":"convert animated sticker to GIF"
+},
+"apt-search":{
+  "template":"apt search {}",
+  "inputs":[
+    {"type":"text",
+    "format":"line",
+    "description":"type package name to search for"}
+  ],
+  "output":["mono"],
+  "test":["akane"],
+  "desc":"search package on APT"
+},
+"bingreverse":{
+  "template":"curl https://api.qewertyy.dev/reverse-image/bing?img_url=$(imgur-uploader {} --title 'Upload') -d 'key=value' | jq .content.bestResults[:10][] |jq -r  '. | \"[\\(.name)](\\(.url))\"'",
+  "inputs":[
+    {
+      "type":"file",
+      "formats":[".png"],
+      "description":"Send photo to reverse"
+    }
+  ],
+    "output":[],
+    "desc":"do bing reverse on image"
+},
+"upscale":{
+  "template":"curl -X POST -H \"Content-Type: application/json\" -d '{{\"image_data\":\"'$(base64 -w 0 < in.jpg)'\"}}'  https://api.qewertyy.dev/upscale -o out.jpg",
+  "inputs":[
+    {
+      "type":"file",
+      "formats":[".png"],
+      "description":"Send photo to upscale"
+    }
+  ],
+  "output":["out.jpg"],
+  "desc":"Upscales the image"
+},
+"instadl":{
+  "template":"url=$(curl -X POST  'https://lexica.qewertyy.dev/downloaders/instagram?url={}' -H 'accept: application/json' -d '' | jq .content[0].url -r);curl $url -o output.mp4",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "sample":"https://www.instagram.com/reel/C2XfyJ9MG6L/?igsh=MWgyMjN2MDJkbmh3ZQ==",
+      "description":"Send instagram post link"
+    }
+  ],
+  "output":["output.mp4"],
+  "desc":"download content from instagram"
+},
+"pinterest":{
+  "template":"url=$(curl -X POST  'https://lexica.qewertyy.dev/downloaders/pinterest?url={}' -H 'accept: application/json' -d '' | jq .content[0].url -r);curl $url -o output.png",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "sample":"https://in.pinterest.com/pin/578994095838073424/",
+      "description":"Send pinterest post link"
+    }
+  ],
+  "output":["output.png"],
+  "desc":"download from pinterest"
+},
+"webss":{
+  "template": "curl 'https://lexica.qewertyy.dev/webss?url={}' --output output.png",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "sample":"https://google.com",
+      "description":"Send url of site"
+    }
+  ] ,
+  "output":["output.png"],
+  "desc":"take ss of webpage url"
+},
+"removecolor":{
+  "template":"ffmpeg -i {} -vf \"colorkey=0x{}:similarity=0.1\" -y out.webm",
+  "inputs":[
+    {
+      "type":"file",
+      "formats":[".png"],
+      "description":"Send photo"
+    },
+    {
+      "type":"text",
+      "format":"line",
+      "sample":"000000",
+      "description":"Send color to remove"
+    }
+  ],
+  "output":["out.webm"],
+  "desc":"remove specific color from image"
+},
+"download":{
+  "template":"url={};wget $url -q; echo $(basename $url)",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "description":"Give url to download"
+    }
+  ],
+  "output":["output_is_filepath"],
+  "desc":"download from url"
+},
+
+"ocr":{
+  "template":"python3 ../scripts/ocr.py \"{}\"",
+  "inputs":[
+    {
+      "type":"file",
+      "description":"Give image for ocr"
+    }
+  ],
+  "output":[],
+  "desc":"ocr image via ai"
+},
+"repodl":{
+  "template":"wget {}/archive/master.zip",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "sample":"https://github.com/lochidev/TextToolsPro",
+      "description":"Give github repo url"
+    }
+  ],
+  "output":["master.zip"],
+  "desc":"download github repo as zip"
+},
+"releases":{
+  "template":"curl -s $(echo {}| sed 's/github.com/api.github.com\\/repos/')/releases/latest | jq .assets[] | jq -c '. | {{desc: .name, inputs: [.browser_download_url], plugin: \"download\"}}'  | jq -n '[inputs]'",
+  "inputs":[
+    {
+      "type":"text",
+      "format":"url",
+      "sample":"https://github.com/lochidev/TextToolsPro",
+      "description":"Give github repo url"
+    }
+  ],
+  "output":["list"],
+  "desc":"get github releases of repo and download them"
+},
+"to480p":{
+  "template":"ffmpeg -i {} -s hd480 -c:v libx264 -crf 23 -c:a aac -strict -2 output.mp4",
+  "inputs":[
+    {
+      "type":"file",
+      "formats":[".mp4"],
+      "description":"Send video"
+    }
+  ],
+  "output":["output.mp4"],
+  "desc":"convert video to 480p"
+},
+"2mkv":{
+  "template":"ffmpeg -i {} -c:av copy output.mkv",
+  "inputs": [   {
+    "type":"file",
+    "formats":[".mp4"],
+    "description":"Send video"
+  }
+  ],
+"output":["output.mkv"],
+"desc":"convert video to mkv"
+},
+"mp32img":{
+  "template":"eyeD3 --write-images out.png {}",
+  "install_command":"pip install eyeD3",
+  "inputs":[{
+    "type":"file",
+    "format":[".mp3"],
+    "description":"Send mp3"
+  }] ,
+  "output":["out.png"],
+  "desc":"get album image from audio file"
+},
+"uploadimg":{
+  "template":"curl --upload-file {} https://transfer.sh/",
+  "inputs":[{
+    "type":"file",
+    "description":"Send image"
+  }],
+  "output":[],
+  "desc":"upload iamge to transfersh"
+},
+"deezerdl":{
+  "template":"python3 ../scripts/deezerdl.py {} {}| tail -n 1",
+  "install_command":"pip install py-deezer",
+  "inputs":[{
+    "type":"text",
+    "format":"url",
+    "description":"Send deezer track url"
+  },{
+    "type":"button",
+    "options":["FLAC","MP3_320","MP3_256","MP3_128"],
+    "description":"Select Quality"
+  }
+],
+  "output":["output_is_filepath","|lyrics.txt"],
+  "desc":"download song from deezer"
+},
+"deezersearch":{
+  "template":"python3 ../scripts/deezersearch.py \"{}\"",
+  "install_command":"pip install py-deezer",
+  "inputs":[{
+    "type":"text",
+    "format":"line",
+    "description":"Enter song search query"
+  }],
+  "output":["list"],
+  "desc":"search song on deezer"
+},
+"spotifydl":{
+  "install_command":"pip install spotdl",
+  "template":"echo $(spotdl {} | tail -n 1 | cut -d'\"' -f2).mp3",
+  "inputs":[{
+    "type":"text",
+    "format":"url",
+    "description":"Send spotify track url"
+  }
+],
+"output":["output_is_filepath"],
+"desc":"download from spotify"
+},
+"imagedl":{
+  "template":"gallery-dl {}",
+  "install_command":"pip install gallery-dl",
+  "inputs":[{
+    "type":"text",
+    "format":"url",
+    "description":"Send url which contains image"
+  }],
+  "output":["output_is_filepath"],
+  "desc":"download image from webpage"
+},
+"randomreddit":{
+  "template":"node ../scripts/randomreddit.js {}",
+  "install_command":"npm install random-reddit axios",
+  "inputs":[{
+    "type":"text",
+    "format":"line",
+    "description":"Enter subreddit name"
+  }],
+  "output":["reddit.png"],
+  "desc":"get random image from subreddit"
+
+},
+"mixemoji":{
+  "template":"curl https://emojik.vercel.app/s/{}_{}?size=128 > emoji.webp",
+  "inputs":[{
+    "type":"text",
+    "format":"line",
+    "description":"Enter first emoji"
+  },{
+    "type":"text",
+    "format":"line",
+    "description":"Enter second emoji"
+  }
+],
+"output":["emoji.webp"],
+"desc":"mix 2 emojis using emoji kitchen"
+},
+"reverse": {
+  "cmd": "",
+  "template": "cat {} | rev",
+  "install_command": "",
+  "inputs": [
+    {
+      "type": "filetext",
+      "description": "Send text to reverse"
+    }
+  ],
+  "output": [],
+  "test":[],
+  "desc":"Reverse text"
+},
+"pdf2text": {
+  "cmd": " ",
+  "template": "python3  ../scripts/pdf_to_text.py {}",
+  "install_command": "sudo apt-get install -y libpoppler-cpp-dev;pip install pdftotext",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["pdf"],
+      "description": "Send pdf"
+    }
+  ],
+  "output": [],
+  "test":[".pdf"],
+  "desc":"Pdf to text"
+},
+"pdf2html":
+  {
+      "cmd": " ",
+      "template": "pdftohtml -enc UTF-8 -noframes {} outfile.html",
+      "install_command": "sudo apt-get install -y poppler-utils",
+      "inputs": [
+      {
+          "type": "file",
+            "formats":["pdf"],
+          "description": "Send pdf"
+      }
+      ],
+      "output": ["outfile.html"],
+      "test":[".pdf"],
+      "desc":"pdf to html"
+  },
+  "pdf2img":
+  {
+      "cmd": " ",
+      "template": "pdftoppm {} out -{}",
+      "install_command": "sudo apt-get install -y poppler-utils",
+      "inputs": [
+      {
+          "type": "file",
+          "formats":["pdf"],
+          "description": "Send pdf"
+      },
+        {
+          "type": "button",
+          "options": ["jpeg", "png"],
+          "description": "Select format"
+        }
+      ],
+      "output": ["out-1.jpeg", "out-1.png"],
+      "test":[".pdf","png"],
+      "desc":"pdf to image"
+  },
+    "2jpg":
+  {
+      "cmd": " ",
+      "template": "convert {} out.jpeg",
+      "install_command": "sudo apt-get install -y imagemagick-6.q16",
+
+      "inputs": [
+      {
+          "type": "file",
+          "formats":["png","webp"],
+          "description": "Send any image"
+      }
+      ],
+      "output": ["out.jpeg"],
+      "test":["sticker.webp"],
+      "desc":"Sticker to jpg image"
+  },
+    "2png":
+  {
+      "cmd": " ",
+      "template": "convert {} out.png",
+
+      "install_command": "sudo apt-get install -y imagemagick-6.q16",
+      "inputs": [
+      {
+          "type": "file",
+          "formats":["webp","jpg"],
+          "description": "Send any image"
+      }
+      ],
+      "output": ["out.png"],
+      "test":[".png"],
+      "desc":"sticker to png image"
+  },
+  "2svg":
+  {
+      "cmd": " ",
+      "template": "convert {} out.svg",
+
+      "install_command": "sudo apt-get install -y imagemagick-6.q16;apt-get install -y potrace",
+      "inputs": [
+      {
+          "type": "file",
+          "formats":["jpg","png"],
+          "description": "Send any image"
+      }
+      ],
+      "output": ["out.svg"],
+      "test":[".png"],
+      "desc":"Image to Vector format"
+  },
+
+  "epub2txt": {
+  "cmd": " ",
+  "template": "pandoc {} -t plain -o out.txt",
+  "install_command": "sudo apt-get install -y pandoc",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["epub"],
+      "description": "Send epub"
+    }
+  ],
+  "output": ["out.txt"],
+  "test":[".epub"],
+  "desc": "Epub to text"
+  }, "epub2pdf": {
+  "cmd": " ",
+  "template": "pandoc {} -t pdf -o out.pdf",
+  "install_command": "sudo apt-get install -y pandoc;sudo apt-get install  -y texlive-latex-recommended",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["epub"],
+      "description": "Send epub"
+    }
+  ],
+  "output": ["out.pdf"],
+  "test":[".epub"],
+  "desc":"Epub to pdf"
+  },
+    "md2pdf": {
+  "cmd": " ",
+  "template": "pandoc {} --pdf-engine=pdflatex -o out.pdf",
+  "install_command": "sudo apt-get install -y pandoc;sudo apt-get install -y  texlive-xetex-recommended",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["md"],
+      "description": "Send markdown file"
+    }
+  ],
+  "output": ["out.pdf"],
+  "test":[".md"],
+  "desc":"markdown to pdf"
+  },
+"url2md": {
+  "cmd": " ",
+  "template": "pandoc -s -r html {} -o out.md",
+  "install_command": "sudo apt-get install -y pandoc",
+  "inputs": [
+    {
+      "type": "text",
+      "format":"url",
+      "description": "Enter URL"
+    }
+  ],
+  "output": ["out.md"],
+  "test":["https://www.google.com"],
+  "desc": "Url to markdown"
+},  "url2pdf": {
+  "cmd": " ",
+  "template": "pandoc -f html -t pdf {} -o out.pdf",
+  "install_command": "sudo apt-get install  -y pandoc;sudo apt-get install -y  texlive-xetex-recommended",
+  "inputs": [
+    {
+      "type": "text",
+      "format":"url",
+      "description": "Enter URL"
+    }
+  ],
+  "output": ["out.pdf"],
+  "test":["https://www.google.com"],
+  "desc": "url to pdf"
+},
+"docx2pdf": {
+  "cmd": " ",
+  "template": "pandoc {} -t pdf -o out.pdf",
+  "install_command": "sudo apt-get install -y pandoc",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["docx"],
+      "description": "Send docx"
+    }
+  ],
+  "output": ["out.pdf"],
+  "test":[".docx"],
+  "desc":"docx to pdf"
+},
+    "2mp3": {
+  "cmd": " ",
+  "template": "ffmpeg -i {} -q:a 0 -map a -y out.mp3",
+  "install_command": "sudo apt-get install -y ffmpeg",
+  "inputs": [
+    {
+      "type": "file",
+      "formats":["mp4","webm"],
+      "description": "Send any video file"
+    }
+  ],
+  "output": ["out.mp3"],
+  "test":[".mp4"],
+  "desc":"Extract audio from video"
+},
+"md5": {
+  "cmd": " ",
+  "template": "md5sum {}",
+  "install_command": "sudo apt-get install -y md5deep",
+  "inputs": [
+    {
+      "type": "file",
+      "description": "Send file"
+    }
+  ],
+  "output": [],
+  "test":[".pdf"],
+  "desc":"get md5 hash"
+},
+"song2lyrics": {
+  "template": "song={};artist=$(mediainfo --Inform=\"General;%Performer%\" $song);track=$(mediainfo --Inform=\"General;%Title%\" $song);python3 ../scripts/lyrics_cli.py $track $artist",
+  "install_command": "pip install azapi",
+  "inputs": [
+    {
+      "type": "file",
+      "description": "Send song file"
+    }
+  ],
+  "output": [],
+  "test":["one republic","I ain't worried"],
+  "desc": "get embedded lyrics from audio file"
+},
+  "tail": {
+  "cmd": " ",
+  "template": "tail -n {} {}",
+  "install_command": "",
+  "inputs": [
+    {
+      "type": "text",
+      "format":"number",
+      "description": "Enter Number of lines"
+    },
+      {
+          "type": "file",
+          "description": "Send file"
+      }
+  ],
+  "output": [],
+  "test":[10,"tmp.txt"],
+  "desc":"get last n lines of file"
+}
+}
+
+
+
+
+
+
+
+

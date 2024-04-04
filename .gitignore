@@ -1,0 +1,10 @@
+.idea/
+storage/
+out.*
+*.session
+config.py
+tests/
+installed.json
+*.pyc
+*.md
+*.log
