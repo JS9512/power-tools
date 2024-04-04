@@ -32,11 +32,11 @@ nexists = lambda x: not os.path.exists(x)
 
 if nexists("storage"):
     os.mkdir("storage")
-if nexists("installed.json"):
+if nexists("../installed.json"):
     with open("installed.json", "w") as f:
         f.write("{}")
 
-if nexists("config.py"):
+if nexists("../config.py"):
     print("there's no config file, you have to rename config.example.py to config.py , and fill in values")
     exit(1)
 
