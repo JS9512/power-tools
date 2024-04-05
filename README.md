@@ -10,6 +10,7 @@ contribute more extensions at [Support chat](https://t.me/power_tools_chat)
 ## Features
 - 100+ plugins support in /store
 - install any plugin without restarting bot
+- automated testing via /runtests
 - it is easy to write plugin in bash or anything else for contribution.
 
 ## Installation
