@@ -1334,6 +1334,18 @@
   "output": [],
   "test":[10,"tmp.txt"],
   "desc":"get last n lines of file"
+}, "compress": {
+  "template": "fname={};gzip $fname -f;echo $fname.gz",
+  "install_command": "",
+  "inputs": [
+      {
+          "type": "file",
+          "description": "Send file"
+      }
+  ],
+  "output": ["output_is_filepath"],
+  "test":[".mp3"],
+  "desc":"compress file using gzip"
 }
 }
 
