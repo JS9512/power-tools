@@ -806,7 +806,7 @@
   "output":["anime.gif"],
   "desc":"convert animated sticker to GIF"
 },
-"apt-search":{
+"aptsearch":{
   "template":"apt search {}",
   "inputs":[
     {"type":"text",
